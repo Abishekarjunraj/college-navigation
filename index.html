@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Navigation</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .button { display: block; margin: 10px auto; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; }
+        #imageContainer img { max-width: 100%; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>College Navigation</h1>
+    <p>Select your destination:</p>
+    <div id="buttonsContainer">
+        <button class="button" onclick="showImage('exit')">Exit</button>
+        <button class="button" onclick="showImage('canteen')">Canteen</button>
+        <button class="button" onclick="showImage('hostel-boys')">Hostel (Boys)</button>
+        <button class="button" onclick="showImage('hostel-girls')">Hostel (Girls)</button>
+        <button class="button" onclick="showImage('bank')">Bank</button>
+    </div>
+    <div id="imageContainer">
+        <img id="routeImage" src="" alt="Route Image">
+    </div>
+
+    <script>
+        // Get the current location from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentLocation = urlParams.get('location') || 'office';
+
+        // Show the image based on the selected destination
+        function showImage(destination) {
+            const imagePath = images/${currentLocation}/to-${destination}.jpg;
+            document.getElementById('routeImage').src = imagePath;
+            document.getElementById('imageContainer').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
